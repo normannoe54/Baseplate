@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WPF.Views.UserInputs"
+﻿<UserControl x:Class="WPF.Views.BaseplateInputs"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,16 +10,6 @@
         <Expander x:Name="Baseplate" Header="Baseplate" Height="312" Margin="15,10,5,0" VerticalAlignment="Top" HorizontalAlignment="Stretch" IsExpanded="True">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
                 <CheckBox x:Name="Enable" Content="Enable"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="WidthLabel" Content="Width"/>
-                    <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
-                </StackPanel>
-                <Slider x:Name="WidthSlider" ValueChanged="Width_ValueChanged" AutoToolTipPlacement="TopLeft" Minimum="10" Maximum="1000"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="HeightLabel" Content="Height"/>
-                    <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
-                </StackPanel>
-                <Slider x:Name="HeightSlider"/>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="ThicknessLabel" Content="Thickness"/>
                     <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>

@@ -67,8 +67,8 @@
     <Compile Include="Views\Diagram.xaml.cs">
       <DependentUpon>Diagram.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserInputs.xaml.cs">
-      <DependentUpon>UserInputs.xaml</DependentUpon>
+    <Compile Include="Views\BaseplateInputs.xaml.cs">
+      <DependentUpon>BaseplateInputs.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -86,7 +86,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserInputs.xaml">
+    <Page Include="Views\BaseplateInputs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

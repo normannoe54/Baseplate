@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
         <Label Grid.Column="1" Content= "BASEPLATE DESIGN" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
         <Views:Diagram Grid.Column="1" Margin="10" Grid.Row="1"/>
-        <Views:UserInputs HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="277"/>
+        <Views:BaseplateInputs HorizontalAlignment="Left" Height="352" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="277"/>
     </Grid>
 </Window>
 

@@ -18,16 +18,11 @@ namespace WPF.Views
     /// <summary>
     /// Interaction logic for UserInputs.xaml
     /// </summary>
-    public partial class UserInputs : UserControl
+    public partial class BaseplateInputs : UserControl
     {
-        public UserInputs()
+        public BaseplateInputs()
         {
             InitializeComponent();
         }
-
-        private void Width_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
-        }
-    }
+   }
 }
