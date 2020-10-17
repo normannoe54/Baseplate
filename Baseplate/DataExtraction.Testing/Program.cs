@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SAP2000v1;
 using ObjectModel;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 
 namespace DataExtraction.Testing
 {
@@ -199,6 +201,7 @@ namespace DataExtraction.Testing
 
             if (selected)
             {
+                //Get Start and End Points of selected frame element
                 string point1 = "";
                 string point2 = "";
                 mySapModel.FrameObj.GetPoints(name, ref point1, ref point2);
@@ -212,20 +215,78 @@ namespace DataExtraction.Testing
                 double z2 = 0;
 
                 mySapModel.PointObj.GetCoordCartesian(point1, ref x1, ref y1, ref z1);
-                mySapModel.PointObj.GetCoordCartesian(point1, ref x2, ref y2, ref z2);
+                mySapModel.PointObj.GetCoordCartesian(point2, ref x2, ref y2, ref z2);
 
-                //here check z or check if restrained
-                if(z)
+                //Get Load Cases 
+                int loadCaseNumber = 0;
+                string[] loadCaseNames= { "" };
+
+                //Take envelope case if exist, if not take the fist one
+                mySapModel.LoadCases.GetNameList_1(ref loadCaseNumber,ref loadCaseNames);
+                string loadCase = loadCaseNames[0];
+                foreach(string i in loadCaseNames)
                 {
-                    //use this to get reactions -> mySapModel.Results
+                    name = i.ToLower();
+                    if (name.Contains("env"))
+                    {
+                        loadCase = i;
+                    }
                 }
 
-                List<ForceObject> exportforce = new List<ForceObject>();
-                ForceObject fobj = new ForceObject(1, 1, 1, 1, 1, 1,name);
-                exportforce.Add(fobj);
-            }
+                //Get Forces
+                double[] Fx = null;
+                double[] Fy = null;
+                double[] Fz = null;
+                double[] Mx = null;
+                double[] My = null;
+                double[] Mz = null;
+                int ResultNumber = 1;
+                string[] jointResult = null;
+                string[] stepType = null;
+                double[] stepNum = null;
+                string[] elem = null;
+                eItemTypeElm obj = 0;
+                
+                string[] Loadcase = null;
 
-            
+
+                // Check to confirm force is read for point with lower z coord
+
+                //if (z1 > z2)
+                //{
+                //    pointName = { point2 };
+                //}
+
+                //Alternatively check check if one end is restrained
+                //mySapModel.PointObj.GetConstraint( )
+
+                //Get Results of selected element at base point
+                try
+                {   // Force results for the selected Frame Element
+                    //mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+
+                    //Reactions for a start point of a selected frame
+                    mySapModel.Results.JointReact(point1, obj, ref ResultNumber, ref jointResult, ref elem, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+                
+                    //Filter Load case 
+                }
+
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Cannot find results for the selected frame");
+
+                    return; 
+
+                }
+                
+
+                List<ForceObject> exportforce = new List<ForceObject>();
+                ForceObject fobj = new ForceObject(Fx[0], Fy[0], Fz[0], Mx[0], My[0], Mz[0] ,name);
+                exportforce.Add(fobj);
+
+            }
+                     
 
 
             //Get frame thats selected
