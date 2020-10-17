@@ -199,10 +199,9 @@ namespace DataExtraction.Testing
             string name = "183";
             ret = mySapModel.FrameObj.GetSelected(name, ref selected);
 
-            
-
             if (selected)
             {
+                //Get Start and End Points of selected frame element
                 string point1 = "";
                 string point2 = "";
                 mySapModel.FrameObj.GetPoints(name, ref point1, ref point2);
@@ -258,20 +257,32 @@ namespace DataExtraction.Testing
                 //{
                 //    pointName = { point2 };
                 //}
-               
-                mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
 
-
-                //here check z or check if restrained
+                //Alternatively check check if one end is restrained
                 //mySapModel.PointObj.GetConstraint( )
+
+                //Get Results of selected element at base point
+                try
+                {
+                    mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+                }
+
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine("Cannot find results for the selected frame");
+
+                    return; 
+
+                }
+                
 
                 List<ForceObject> exportforce = new List<ForceObject>();
                 ForceObject fobj = new ForceObject(Fx[0], Fy[0], Fz[0], Mx[0], My[0], Mz[0] ,name);
                 exportforce.Add(fobj);
 
             }
-
-            
+                     
 
 
             //Get frame thats selected
