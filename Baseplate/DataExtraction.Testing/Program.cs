@@ -215,7 +215,7 @@ namespace DataExtraction.Testing
                 double z2 = 0;
 
                 mySapModel.PointObj.GetCoordCartesian(point1, ref x1, ref y1, ref z1);
-                mySapModel.PointObj.GetCoordCartesian(point1, ref x2, ref y2, ref z2);
+                mySapModel.PointObj.GetCoordCartesian(point2, ref x2, ref y2, ref z2);
 
                 //Get Load Cases 
                 int loadCaseNumber = 0;
@@ -234,21 +234,20 @@ namespace DataExtraction.Testing
                 }
 
                 //Get Forces
-                double[] Fx = { 0 };
-                double[] Fy = { 0 };
-                double[] Fz = { 0 };
-                double[] Mx = { 0 };
-                double[] My = { 0 };
-                double[] Mz = { 0 };
+                double[] Fx = null;
+                double[] Fy = null;
+                double[] Fz = null;
+                double[] Mx = null;
+                double[] My = null;
+                double[] Mz = null;
                 int ResultNumber = 1;
-                string[] frameResult = { " " };
-                string[] stepType = { " " };
-                double[] stepNum = { 0 };
-                string[] elem = {""};
+                string[] jointResult = null;
+                string[] stepType = null;
+                double[] stepNum = null;
+                string[] elem = null;
                 eItemTypeElm obj = 0;
                 
-                string[] Loadcase = { loadCase };
-                string[] pointName = { point1 };
+                string[] Loadcase = null;
 
 
                 // Check to confirm force is read for point with lower z coord
@@ -263,8 +262,13 @@ namespace DataExtraction.Testing
 
                 //Get Results of selected element at base point
                 try
-                {
-                    mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+                {   // Force results for the selected Frame Element
+                    //mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+
+                    //Reactions for a start point of a selected frame
+                    mySapModel.Results.JointReact(point1, obj, ref ResultNumber, ref jointResult, ref elem, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+                
+                    //Filter Load case 
                 }
 
                 catch (Exception ex)
