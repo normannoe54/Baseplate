@@ -222,51 +222,53 @@ namespace DataExtraction.Testing
                 int loadCaseNumber = 0;
                 string[] loadCaseNames= { "" };
 
-                //check version of the method
+                //Take envelope case if exist, if not take the fist one
                 mySapModel.LoadCases.GetNameList_1(ref loadCaseNumber,ref loadCaseNames);
+                string loadCase = loadCaseNames[0];
                 foreach(string i in loadCaseNames)
                 {
-                    if("env" in i)
-                        {
-
+                    name = i.ToLower();
+                    if (name.Contains("env"))
+                    {
+                        loadCase = i;
                     }
                 }
 
                 //Get Forces
-                double Fx = 0;
-                double Fy = 0;
-                double Fz = 0;
-                double Mx = 0;
-                double My = 0;
-                double Mz = 0;
+                double[] Fx = { 0 };
+                double[] Fy = { 0 };
+                double[] Fz = { 0 };
+                double[] Mx = { 0 };
+                double[] My = { 0 };
+                double[] Mz = { 0 };
                 int ResultNumber = 1;
-                string frameResult = " ";
-                string stepType = "";
-                string stepNum = "";
- 
-
-                // Check z coordinate
-
-                if (z1<z2)
-                {
-                    mySapModel.Results.FrameJointForce(name, mySapModel.FrameObj, ref ResultNumber, ref frameResult, point1, LoadCase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+                string[] frameResult = { " " };
+                string[] stepType = { " " };
+                double[] stepNum = { 0 };
+                string[] elem = {""};
+                eItemTypeElm obj = 0;
+                
+                string[] Loadcase = { loadCase };
+                string[] pointName = { point1 };
 
 
-                }
-                if(z)
-                {
-                    //use this to get reactions -> mySapModel.Results
-                }
+                // Check to confirm force is read for point with lower z coord
+
+                //if (z1 > z2)
+                //{
+                //    pointName = { point2 };
+                //}
+               
+                mySapModel.Results.FrameJointForce(name, obj, ref ResultNumber, ref frameResult, ref elem, ref pointName, ref Loadcase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
 
 
                 //here check z or check if restrained
                 //mySapModel.PointObj.GetConstraint( )
 
-
-
                 List<ForceObject> exportforce = new List<ForceObject>();
-                ForceObject fobj = new ForceObject(1, 1, 1, 1, 1, 1,name);
+                ForceObject fobj = new ForceObject(Fx[0], Fy[0], Fz[0], Mx[0], My[0], Mz[0] ,name);
                 exportforce.Add(fobj);
+
             }
 
             
