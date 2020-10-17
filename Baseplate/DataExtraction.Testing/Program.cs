@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using SAP2000v1;
 using ObjectModel;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 
 namespace DataExtraction.Testing
 {
@@ -197,6 +199,8 @@ namespace DataExtraction.Testing
             string name = "183";
             ret = mySapModel.FrameObj.GetSelected(name, ref selected);
 
+            
+
             if (selected)
             {
                 string point1 = "";
@@ -214,11 +218,51 @@ namespace DataExtraction.Testing
                 mySapModel.PointObj.GetCoordCartesian(point1, ref x1, ref y1, ref z1);
                 mySapModel.PointObj.GetCoordCartesian(point1, ref x2, ref y2, ref z2);
 
-                //here check z or check if restrained
+                //Get Load Cases 
+                int loadCaseNumber = 0;
+                string[] loadCaseNames= { "" };
+
+                //check version of the method
+                mySapModel.LoadCases.GetNameList_1(ref loadCaseNumber,ref loadCaseNames);
+                foreach(string i in loadCaseNames)
+                {
+                    if("env" in i)
+                        {
+
+                    }
+                }
+
+                //Get Forces
+                double Fx = 0;
+                double Fy = 0;
+                double Fz = 0;
+                double Mx = 0;
+                double My = 0;
+                double Mz = 0;
+                int ResultNumber = 1;
+                string frameResult = " ";
+                string stepType = "";
+                string stepNum = "";
+ 
+
+                // Check z coordinate
+
+                if (z1<z2)
+                {
+                    mySapModel.Results.FrameJointForce(name, mySapModel.FrameObj, ref ResultNumber, ref frameResult, point1, LoadCase, ref stepType, ref stepNum, ref Fx, ref Fy, ref Fz, ref Mx, ref My, ref Mz);
+
+
+                }
                 if(z)
                 {
                     //use this to get reactions -> mySapModel.Results
                 }
+
+
+                //here check z or check if restrained
+                //mySapModel.PointObj.GetConstraint( )
+
+
 
                 List<ForceObject> exportforce = new List<ForceObject>();
                 ForceObject fobj = new ForceObject(1, 1, 1, 1, 1, 1,name);
