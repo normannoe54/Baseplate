@@ -24,5 +24,7 @@ namespace ObjectModel
             _My = My;
             _Mz = Mz;
         }
+
+        
     }
 }
