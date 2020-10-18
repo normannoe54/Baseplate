@@ -20,15 +20,17 @@
             <Label x:Name="YieldingLabel" Content="Yielding :" HorizontalAlignment="Right" FontSize="12"/>
             <Label x:Name="AnchorBltTenLabel" Content="Anchor Bolt Tension :" HorizontalAlignment="Right" FontSize="12"/>
                 <Label x:Name="MaxBendCapLabel" Content="Max Bend Capacity :" HorizontalAlignment="Right" FontSize="12"/>
-                <Label x:Name="BreakoutLabel" Content="Breakout :" HorizontalAlignment="Right" FontSize="12"/>
-            <Label x:Name="WeldCheckLabel" Content="Weld Check :" HorizontalAlignment="Right" FontSize="12"/>
+                <Label x:Name="BearingCapLabel" Content="Bearing Capacity :" HorizontalAlignment="Right" FontSize="12"/>
+                <Label x:Name="BearingDCRLabel" Content="Bearing DCR:" HorizontalAlignment="Right" FontSize="12"/>
+                <Label x:Name="MinReqThickLabel" Content="Min Req. Thickness :" HorizontalAlignment="Right" FontSize="12"/>
         </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
                 <Label x:Name="YieldingResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.YielidngDCR}" />
                 <Label x:Name="AnchorBltTenResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.AnchorRodTension}" />
-                <Label x:Name="MaxBendCapResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.MaximumBendingCapacity}" /> 
-                <Label x:Name="WeldCheckResult" Content="---" HorizontalAlignment="Left" FontSize="12"/>
-                <Label x:Name="BreakoutResult" Content="---" HorizontalAlignment="Left" FontSize="12"/>
+                <Label x:Name="MaxBendCapResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.MaximumBendingCapacity}" />
+                <Label x:Name="BearingCapResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingCapacity}" />
+                <Label x:Name="BearingDCRResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingDCR}" />
+                <Label x:Name="MinReqThickResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.MinReqdThickness}" />
             </StackPanel>
 
 
