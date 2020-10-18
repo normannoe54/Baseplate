@@ -67,6 +67,9 @@
     <Compile Include="Views\Diagram.xaml.cs">
       <DependentUpon>Diagram.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ResultsDisplay.xaml.cs">
+      <DependentUpon>ResultsDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserInputs.xaml.cs">
       <DependentUpon>UserInputs.xaml</DependentUpon>
     </Compile>
@@ -83,6 +86,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\Diagram.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ResultsDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -121,6 +128,12 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ObjectModel\ObjectModel.csproj">
+      <Project>{32f40821-c412-4645-947f-956664569c61}</Project>
+      <Name>ObjectModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />

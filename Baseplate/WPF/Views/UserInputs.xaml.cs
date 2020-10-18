@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ObjectModel;
+
 namespace WPF.Views
 {
     /// <summary>
@@ -20,9 +22,12 @@ namespace WPF.Views
     /// </summary>
     public partial class UserInputs : UserControl
     {
+        Baseplate baseplate = new Baseplate();
+
         public UserInputs()
         {
             InitializeComponent();
+            this.DataContext = baseplate;
         }
 
         private void Width_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
