@@ -11,23 +11,16 @@ namespace ObjectModel
         /// <summary>
         /// uuid extracted data
         /// </summary>
-        public readonly string _name;
+        public string _name { get; set; }
 
         /// <summary>
         /// section
         /// </summary>
-        public readonly Column _column;
+        public Column _column { get; set; }
 
         /// <summary>
         /// design results
         /// </summary>
-        public readonly List<ForceObject> _exportedforces;
-
-        public ExportedResults(string name, Column column, List<ForceObject> exportedforces)
-        {
-            _name = name;
-            _column = column;
-            _exportedforces = exportedforces;
-        }
+        public List<ForceObject> _exportedforces { get; set; }
     }
 }

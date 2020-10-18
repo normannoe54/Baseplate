@@ -131,6 +131,10 @@
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataExtraction\DataExtraction.csproj">
+      <Project>{ff5a5afe-c11a-4fcb-b62a-3b149d2df7f3}</Project>
+      <Name>DataExtraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Designer\Designer.csproj">
       <Project>{c4a516c7-4121-4253-a054-7df954ab724f}</Project>
       <Name>Designer</Name>

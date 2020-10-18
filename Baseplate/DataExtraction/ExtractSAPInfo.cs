@@ -101,7 +101,10 @@ namespace DataExtraction
             mySapModel.PropMaterial.GetOSteel(propname, ref fy, ref fu, ref efy, ref efu, ref sstype, ref sshys, ref strainhard, ref strainmax, ref strainrupt);
             Steel steel = new Steel(propname, fy);
             Column col = new Column(propname, steel);
-            ExportedResults expres = new ExportedResults(outputname, col, exportforce);
+            ExportedResults expres = new ExportedResults();
+            expres._column = col;
+            expres._name = outputname;
+            expres._exportedforces = exportforce;
             return expres;
         }
     }
