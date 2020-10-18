@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,7 +26,12 @@ namespace WPF.Views
         public UserInputs()
         {
             InitializeComponent();
-            this.DataContext = State.instance.basePlate;
+            this.DataContext = State.instance;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Debug.Print(State.instance.ToString());
         }
     }
 }

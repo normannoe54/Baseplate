@@ -12,7 +12,7 @@ namespace WPF
     {
         private State() { }
 
-        private static State _instance = null;
+        private static State _instance { get; set; }
 
         public static State instance
         {
@@ -25,12 +25,9 @@ namespace WPF
                 return _instance;
             }
         }
-
-
-
-        public Baseplate basePlate = new Baseplate();
-        public AnchorBolt anchorBolt = new AnchorBolt();
-        public BPTransfer bPTransfer = new BPTransfer();
+        public Baseplate basePlate { get; } = new Baseplate();
+        public AnchorBolt anchorBolt { get; } = new AnchorBolt();
+        public Foundation foundation { get; } = new Foundation();
 
     }
 }

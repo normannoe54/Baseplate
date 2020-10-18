@@ -8,11 +8,11 @@ namespace ObjectModel
 {
     public class Foundation
     {
-        public string _name;
+        public string _name { get; set; }
 
-        public double _width;
+        public double _width { get; set; }
 
-        public double _height;
+        public double _height { get; set; }
 
         public Concrete _concrete;
     }

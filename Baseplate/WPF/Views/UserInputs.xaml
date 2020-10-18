@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF.Views"
+             xmlns:local="clr-namespace:WPF"
              mc:Ignorable="d" 
              d:DesignHeight="1102.918" d:DesignWidth="800">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
-        <Button x:Name="button" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top" Click="Button_Click"/>
         <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
                 <CheckBox x:Name="Enable" Content="Enable"/>
@@ -16,17 +16,17 @@
                     <Label x:Name="WidthLabel" Content="Width"/>
                     <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
                 </StackPanel>
-                <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="12"/>
+                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._width}"/>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="HeightLabel" Content="Height"/>
                     <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
                 </StackPanel>
-                <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft"/>
+                    <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft" Value="{Binding foundation._height}"/>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="ThicknessLabel" Content="Thickness"/>
                     <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>
                 </StackPanel>
-                <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding Path=_thickness}"/>
+                    <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding Path=basePlate._thickness}" Margin="2,0,-1.667,0"/>
                 <Label x:Name="MaterialLabel" Content="Material"/>
                 <ComboBox x:Name="BasePlateCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
                     <ListBoxItem Content="Steel"/>
