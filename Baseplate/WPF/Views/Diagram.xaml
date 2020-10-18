@@ -6,11 +6,13 @@
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-
-    <Canvas x:Name="DiagramCanvas">
+    <Grid>
+        <Canvas x:Name="DiagramCanvas">
         <Grid x:Name="DiagramGrid" Width="{Binding ActualWidth, ElementName=DiagramCanvas}" 
           Height="{Binding ActualHeight, ElementName=DiagramCanvas}">
 
         </Grid>
     </Canvas>
+        <Button x:Name="RecomputeBtn" Content="Run Case" Margin="10,4,10,0" VerticalAlignment="Bottom"/>
+    </Grid>
 </UserControl>

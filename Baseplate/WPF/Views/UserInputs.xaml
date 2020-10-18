@@ -9,7 +9,7 @@
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <StackPanel>
-            <Button x:Name="button" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
+            <Button x:Name="ImportLoadsBtn" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
             <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
                     <CheckBox x:Name="Enable" Content="Enable"/>
