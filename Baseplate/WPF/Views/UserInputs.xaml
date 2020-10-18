@@ -10,31 +10,31 @@
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <StackPanel>
             <Button x:Name="button" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
-        <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
-                <CheckBox x:Name="Enable" Content="Enable"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="WidthLabel" Content="Width"/>
-                    <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
+            <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
+                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                    <CheckBox x:Name="Enable" Content="Enable"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="WidthLabel" Content="Width"/>
+                        <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
+                    </StackPanel>
+                        <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding basePlate.Width}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="HeightLabel" Content="Height"/>
+                        <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
+                    </StackPanel>
+                        <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft" Value="{Binding basePlate.Height}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="ThicknessLabel" Content="Thickness"/>
+                        <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>
+                    </StackPanel>
+                        <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding basePlate.Thickness}" Margin="2,0,-1.667,0"/>
+                    <Label x:Name="MaterialLabel" Content="Material"/>
+                    <ComboBox x:Name="BasePlateCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
+                        <ListBoxItem Content="Steel"/>
+                    </ComboBox>
                 </StackPanel>
-                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding basePlate.Width}"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="HeightLabel" Content="Height"/>
-                    <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
-                </StackPanel>
-                    <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft" Value="{Binding basePlate.Height}"/>
-                <StackPanel Orientation="Horizontal">
-                    <Label x:Name="ThicknessLabel" Content="Thickness"/>
-                    <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>
-                </StackPanel>
-                    <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding basePlate.Thickness}" Margin="2,0,-1.667,0"/>
-                <Label x:Name="MaterialLabel" Content="Material"/>
-                <ComboBox x:Name="BasePlateCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
-                    <ListBoxItem Content="Steel"/>
-                </ComboBox>
-            </StackPanel>
-        </Expander>
-        <Expander x:Name="AnchorBoltsExpander" Header="Anchor Bolts" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            </Expander>
+            <Expander x:Name="AnchorBoltsExpander" Header="Anchor Bolts" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="AnchorRowCountLabel" Content="Row Count"/>
@@ -108,7 +108,6 @@
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
                 </StackPanel>
             </Expander>
-
         </StackPanel>
     </ScrollViewer>
 </UserControl>
