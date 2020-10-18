@@ -8,11 +8,29 @@ namespace ObjectModel
 {
     public class Baseplate
     {
-        public string _name { get; set; }
 
-        public double _thickness { get; set; }
+        public double Width { get; set; } = 12;
 
-        public Steel _steel;
-      
+        public double Height { get; set; } = 12;
+
+        public double Thickness { get; set; } = 1;
+
+        public string _name = string.Empty;
+
+        public Steel _steel = new Steel();
+
+        public Baseplate()
+        {
+        }
+
+            public Baseplate(string name, double thickness, double width, double height, Steel steel)
+        {
+            _name = name;
+            Width = width;
+            Height = height;
+            Thickness = thickness;
+            _steel = steel;
+        }
+
     }
 }

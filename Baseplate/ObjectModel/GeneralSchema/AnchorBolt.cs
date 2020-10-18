@@ -8,5 +8,6 @@ namespace ObjectModel.GeneralSchema
 {
     public class AnchorBolt
     {
+        public AnchorBolt() { }
     }
 }
