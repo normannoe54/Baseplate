@@ -17,7 +17,7 @@
                     <Label x:Name="WidthLabel" Content="Width"/>
                     <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
                 </StackPanel>
-                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding basePlate.Width}"/>
+                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding basePlate.Width, Mode=TwoWay}"/>
                 <StackPanel Orientation="Horizontal">
                     <Label x:Name="HeightLabel" Content="Height"/>
                     <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>

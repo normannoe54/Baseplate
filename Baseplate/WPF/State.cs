@@ -25,9 +25,9 @@ namespace WPF
                 return _instance;
             }
         }
-        public Baseplate basePlate { get; } = new Baseplate();
-        public AnchorBolt anchorBolt { get; } = new AnchorBolt();
-        public Foundation foundation { get; } = new Foundation();
+        public Baseplate basePlate { get; set; } = new Baseplate();
+        public AnchorBolt anchorBolt { get; set; } = new AnchorBolt();
+        public Foundation foundation { get; set; } = new Foundation();
 
         public ExportedResults exportedresults { get; } = new ExportedResults();
     }
