@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Canvas x:Name="DiagramCanvas">
-        <Grid x:Name="DiagramGrid" Width="{Binding ActualWidth, ElementName=DiagramCanvas}" 
-          Height="{Binding ActualHeight, ElementName=DiagramCanvas}">
+    <Grid>
+        <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch"/>
+        <Canvas x:Name="DiagramCanvas" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="234" Canvas.Top="90">
 
-        </Grid>
     </Canvas>
+    </Grid>
 </UserControl>
