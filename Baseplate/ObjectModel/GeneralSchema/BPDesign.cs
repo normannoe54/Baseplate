@@ -15,12 +15,5 @@ namespace ObjectModel
         public readonly Baseplate _bp;
         public readonly Foundation _fndn;
         public readonly ExportedResults _exres;
-        public BPDesign(ISection column, Baseplate bp, Foundation fndn, ExportedResults exres)
-        {
-            _column = column;
-            _bp = bp;
-            _fndn = fndn;
-            _exres = exres;
-        }
     }
 }

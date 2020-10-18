@@ -11,14 +11,8 @@ namespace ObjectModel
     /// </summary>
     public class BPTransfer
     {
-        public readonly Column _column;
-        public readonly Baseplate _bp;
-        public readonly Foundation _fndn;
-        public BPTransfer(Column column, Baseplate bp, Foundation fndn)
-        {
-            _column = column;
-            _bp = bp;
-            _fndn = fndn;
-        }
+        public Column _column;
+        public Baseplate _bp;
+        public Foundation _fndn;
     }
 }
