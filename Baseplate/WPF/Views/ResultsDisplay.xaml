@@ -16,8 +16,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <StackPanel Margin="10">
-            <Label x:Name="YieldingLabel" Content="Yielding :" HorizontalAlignment="Right" FontSize="12"/>
+            <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch" Click="Run_Click"/>
+            <StackPanel Margin="10">
+                <Label x:Name="YieldingLabel" Content="Yielding :" HorizontalAlignment="Right" FontSize="12"/>
             <Label x:Name="AnchorBltTenLabel" Content="Anchor Bolt Tension :" HorizontalAlignment="Right" FontSize="12"/>
                 <Label x:Name="MaxBendCapLabel" Content="Max Bend Capacity :" HorizontalAlignment="Right" FontSize="12"/>
                 <Label x:Name="BearingCapLabel" Content="Bearing Capacity :" HorizontalAlignment="Right" FontSize="12"/>

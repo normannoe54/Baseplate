@@ -94,18 +94,6 @@ namespace WPF.Views
             //Canvas.SetTop(myPath, Width / 2);
         }
 
-        private void Run_Click(object sender, RoutedEventArgs e)
-        {
-            //create bpdesign object
-            BPDesign bpdes = new BPDesign();
-            bpdes._bp = State.instance.basePlate;
-            bpdes._exres = State.instance.exportedresults;
-            bpdes._fndn = State.instance.foundation;
 
-            ISection isection = Collection.GetISectionbyName(State.instance.exportedresults._column._section.ToUpper());
-
-            bpdes._column = isection;
-            DesignResults desres = Designer.AISCDG1.DesignGravity(bpdes);
-        }
     }
 }
