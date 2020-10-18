@@ -11,8 +11,13 @@ namespace ObjectModel
     /// </summary>
     public class DesignResults
     {
-        public double YielidngDCR;
-        public double AnchorRodTension;
-        public double MaximumBendingCapacity;            
+        public double YielidngDCR { get; set; } = 0;
+        public double AnchorRodTension { get; set; } = 0;
+        public double MaximumBendingCapacity { get; set; } = 0;    
+        
+        public DesignResults()
+        {
+
+        }
     }
 }

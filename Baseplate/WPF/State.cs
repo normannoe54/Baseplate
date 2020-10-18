@@ -30,5 +30,7 @@ namespace WPF
         public Foundation foundation { get; set; } = new Foundation();
 
         public ExportedResults exportedresults { get; } = new ExportedResults();
+        public DesignResults designResults { get; } = new DesignResults();
+
     }
 }
