@@ -6,8 +6,11 @@
              xmlns:local="clr-namespace:WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Canvas x:Name="DiagramCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FFFF6161"/>
 
-    </Grid>
+    <Canvas x:Name="DiagramCanvas">
+        <Grid x:Name="DiagramGrid" Width="{Binding ActualWidth, ElementName=DiagramCanvas}" 
+          Height="{Binding ActualHeight, ElementName=DiagramCanvas}">
+
+        </Grid>
+    </Canvas>
 </UserControl>
