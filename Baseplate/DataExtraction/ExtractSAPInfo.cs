@@ -13,7 +13,7 @@ namespace DataExtraction
         /// ALEKSANDRA COPY AND PASTE DATAEXTRACTION.TESTING CODE HERE
         /// </summary>
         /// <returns></returns>
-        public static DesignResults PopulateDesignResults()
+        public static void PopulateDesignResults()
         {
             //convert base reactions into the single object above
            

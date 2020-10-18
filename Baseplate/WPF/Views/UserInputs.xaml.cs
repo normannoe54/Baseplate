@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,13 +23,10 @@ namespace WPF.Views
     public partial class UserInputs : UserControl
     {
 
-        Baseplate bp = new Baseplate();
-
         public UserInputs()
         {
             InitializeComponent();
-            this.DataContext = bp;
+            this.DataContext = State.instance;
         }
-
     }
 }

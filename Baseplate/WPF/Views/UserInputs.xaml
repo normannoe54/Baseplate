@@ -3,79 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WPF.Views"
+             xmlns:local="clr-namespace:WPF"
              mc:Ignorable="d" 
              d:DesignHeight="1102.918" d:DesignWidth="800">
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <StackPanel>
-            <Button x:Name="importButtons" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
-            <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
-                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
-                    <CheckBox x:Name="Enable" Content="Enable"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="WidthLabel" Content="Width"/>
-                        <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Path=Thickness}"/>
-                    </StackPanel>
-                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding Path=Thickness}"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="HeightLabel" Content="Height"/>
-                        <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft"/>
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="ThicknessLabel" Content="Thickness"/>
-                        <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding Path=_thickness}"/>
-                    <Label x:Name="MaterialLabel" Content="Material"/>
-                    <ComboBox x:Name="BasePlateCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
-                        <ListBoxItem Content="Steel"/>
-                    </ComboBox>
+            <Button x:Name="button" Content="Import Loads" Margin="10,4,10,0" VerticalAlignment="Top"/>
+        <Expander x:Name="BaseplateExpander" Header="Baseplate" Margin="10,10,10,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" IsExpanded="True">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                <CheckBox x:Name="Enable" Content="Enable"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="WidthLabel" Content="Width"/>
+                    <TextBox x:Name="WidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=WidthSlider}"/>
                 </StackPanel>
-            </Expander>
-            <Expander x:Name="AnchorBoltsExpander" Header="Anchor Bolts" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                    <Slider x:Name="WidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding basePlate.Width}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="HeightLabel" Content="Height"/>
+                    <TextBox x:Name="HeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=HeightSlider}"/>
+                </StackPanel>
+                    <Slider x:Name="HeightSlider" TickPlacement="BottomRight" Minimum="12" Maximum="120" SmallChange="1" AutoToolTipPlacement="TopLeft" Value="{Binding basePlate.Height}"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="ThicknessLabel" Content="Thickness"/>
+                    <TextBox x:Name="ThicknessText" TextWrapping="Wrap" Text="{Binding Value, ElementName=ThicknessSlider}"/>
+                </StackPanel>
+                    <Slider x:Name="ThicknessSlider" LargeChange="0.25" Minimum="0.25" Maximum="6" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight" Value="{Binding basePlate.Thickness}" Margin="2,0,-1.667,0"/>
+                <Label x:Name="MaterialLabel" Content="Material"/>
+                <ComboBox x:Name="BasePlateCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
+                    <ListBoxItem Content="Steel"/>
+                </ComboBox>
+            </StackPanel>
+        </Expander>
+        <Expander x:Name="AnchorBoltsExpander" Header="Anchor Bolts" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorRowCountLabel" Content="Row Count"/>
+                    <TextBox x:Name="AnchorRowCountText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorRowCountSlider}"/>
+                </StackPanel>
+                <Slider x:Name="AnchorRowCountSlider" LargeChange="1" Minimum="1" Maximum="10" SmallChange="1" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorRowCountLabel" Content="Row Count"/>
-                        <TextBox x:Name="AnchorRowCountText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorRowCountSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorRowCountSlider" LargeChange="1" Minimum="1" Maximum="10" SmallChange="1" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorRowSpacingLabel" Content="Row Spacing"/>
+                    <TextBox x:Name="AnchorRowSpacingText" TextWrapping="Wrap"/>
+                </StackPanel>
+                <Slider x:Name="AnchorRowSpacingSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorRowSpacingLabel" Content="Row Spacing"/>
-                        <TextBox x:Name="AnchorRowSpacingText" TextWrapping="Wrap"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorRowSpacingSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorColCountLabel" Content="Column Count"/>
+                    <TextBox x:Name="AnchorColCountText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorColCountSlider}"/>
+                </StackPanel>
+                <Slider x:Name="AnchorColCountSlider" LargeChange="1" Minimum="1" Maximum="10" SmallChange="1" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorColCountLabel" Content="Column Count"/>
-                        <TextBox x:Name="AnchorColCountText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorColCountSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorColCountSlider" LargeChange="1" Minimum="1" Maximum="10" SmallChange="1" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorColSpacingLabel" Content="Col Spacing"/>
+                    <TextBox x:Name="AnchorColSpacingText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorColSpacingSlider}"/>
+                </StackPanel>
+                <Slider x:Name="AnchorColSpacingSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorColSpacingLabel" Content="Col Spacing"/>
-                        <TextBox x:Name="AnchorColSpacingText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorColSpacingSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorColSpacingSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorDiameterLabel" Content="Diameter"/>
+                    <TextBox x:Name="AnchorDiameterText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorDiameterSlider}"/>
+                </StackPanel>
+                <Slider x:Name="AnchorDiameterSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorDiameterLabel" Content="Diameter"/>
-                        <TextBox x:Name="AnchorDiameterText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorDiameterSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorDiameterSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label x:Name="AnchorEmbedLabel" Content="Embedment"/>
+                    <TextBox x:Name="AnchorEmbedText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorEmbedSlider}"/>
+                </StackPanel>
+                <Slider x:Name="AnchorEmbedSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
 
-                    <StackPanel Orientation="Horizontal">
-                        <Label x:Name="AnchorEmbedLabel" Content="Embedment"/>
-                        <TextBox x:Name="AnchorEmbedText" TextWrapping="Wrap" Text="{Binding Value, ElementName=AnchorEmbedSlider}"/>
-                    </StackPanel>
-                    <Slider x:Name="AnchorEmbedSlider" LargeChange="0.25" Minimum="1" Maximum="10.0" SmallChange="0.25" TickPlacement="BottomRight" AutoToolTipPlacement="BottomRight"/>
-
-                    <ComboBox x:Name="AnchorCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
-                        <ListBoxItem Content="Steel"/>
-                    </ComboBox>
+                <ComboBox x:Name="AnchorCombo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SelectedIndex="0">
+                    <ListBoxItem Content="Steel"/>
+                </ComboBox>
 
                 </StackPanel>
             </Expander>
@@ -93,6 +92,16 @@
             </Expander>
             <Expander x:Name="FoundationExpander" Header="Foundation" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="FdnWidthLabel" Content="Width"/>
+                        <TextBox x:Name="FdnWidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=FdnWidthSlider}"/>
+                    </StackPanel>
+                    <Slider x:Name="FdnWidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._width}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="FdnHeightLabel" Content="Width"/>
+                        <TextBox x:Name="FdnHeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=FdnHeightSlider}"/>
+                    </StackPanel>
+                    <Slider x:Name="FdnHeightSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._height}"/>
                 </StackPanel>
             </Expander>
             <Expander x:Name="GussetConnectionExpander" Header="Gusset Connection" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
