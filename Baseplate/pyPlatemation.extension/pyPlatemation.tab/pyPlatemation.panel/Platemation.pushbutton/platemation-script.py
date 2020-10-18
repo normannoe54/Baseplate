@@ -29,6 +29,7 @@ def main():
     with revit.TransactionGroup("Platemation"):
         pm_engine.add_baseplate_param()
         pm_engine.create_baseplate_schedule()
+        pm_engine.set_value()
 
 
 if __name__ == "__main__":

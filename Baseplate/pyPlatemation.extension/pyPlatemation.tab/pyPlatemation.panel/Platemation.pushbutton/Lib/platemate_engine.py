@@ -1,11 +1,13 @@
 import sys
 import os
+import json
 from functools import wraps
-from collections import namedtuple
 from pyrevit import revit
 
 from Autodesk.Revit.DB import FilteredElementCollector, BuiltInCategory, BuiltInParameterGroup
 from Autodesk.Revit.DB import ViewSchedule, SchedulableField, ScheduleFilter, ScheduleFilterType, Category
+from Autodesk.Revit import ApplicationServices
+from rpw import db
 
 doc = __revit__.ActiveUIDocument.Document
 uidoc = __revit__.ActiveUIDocument
@@ -24,6 +26,8 @@ class PlatemateEngine(object):
         return (False)
 
     def add_baseplate_param(self):
+        cd = os.getcwd()
+        temp_paramfile = os.path.join(cd, "../Lib/PM_SharedParameters.txt")
         scolumn_category = Category.GetCategory(doc, BuiltInCategory.OST_StructuralColumns)
         cat_set = __revit__.Application.Create.NewCategorySet()
         cat_set.Insert(scolumn_category)
@@ -83,3 +87,15 @@ class PlatemateEngine(object):
                 pm_filter = ScheduleFilter(filter_elem.FieldId, ScheduleFilterType.Equal, "Water Glass")
                 platemation_schedule.Definition.AddFilter(pm_filter)
                 """
+
+    def set_value(self):
+        scolumn_els = (FilteredElementCollector(doc)
+        .OfCategory(BuiltInCategory.OST_StructuralColumns)
+        .WhereElementIsNotElementType()
+        .ToElements())
+        with revit.Transaction("set value"):
+            for scolumn_el in scolumn_els:
+                db.Element(scolumn_el).parameters['Baseplate-Type'].value = 'A4'
+                db.Element(scolumn_el).parameters['Baseplate-Width'].value = 0.15
+                db.Element(scolumn_el).parameters['Baseplate-Height'].value = 0.15
+                db.Element(scolumn_el).parameters['Baseplate-Thickness'].value = 0.05
