@@ -83,26 +83,26 @@ namespace DataExtraction
             {
                 ForceObject fobj = new ForceObject(f1[j], f2[j], f3[j], m1[j], m2[j], m3[j]);
                 exportforce.Add(fobj);
+
             }
 
             string propname = "";
             string sauto = "";
             mySapModel.FrameObj.GetSection(outputname, ref propname, ref sauto);
-
             double fy = 0;
             double fu = 0;
             double efy = 0;
             double efu = 0;
-            double sstype = 0;
-            double sshys = 0;
-
+            int sstype = 0;
+            int sshys = 0;
+            double strainhard = 0;
+            double strainmax = 0;
+            double strainrupt = 0;
             mySapModel.PropMaterial.GetOSteel(propname, ref fy, ref fu, ref efy, ref efu, ref sstype, ref sshys, ref strainhard, ref strainmax, ref strainrupt);
-
-
-
-            Column col = new Column(propname, )
-            ExportedResults expres = new ExportedResults(outputname, , exportforce);
-
+            Steel steel = new Steel(propname, fy);
+            Column col = new Column(propname, steel);
+            ExportedResults expres = new ExportedResults(outputname, col, exportforce);
+            return expres;
         }
     }
 }
