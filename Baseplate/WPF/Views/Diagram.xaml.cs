@@ -23,14 +23,22 @@ namespace WPF.Views
         public Diagram()
         {
             InitializeComponent();
+            SolidColorBrush blackBrush = new SolidColorBrush();
+            blackBrush.Color = Colors.Black;
 
-            Rectangle rectangle = new Rectangle();
-            rectangle.Width = 100;
-            rectangle.Height = 100;
-            Canvas.SetTop(rectangle, 100);
-            Canvas.SetLeft(rectangle, 100);
+            Rectangle rectangle = new Rectangle
+            {
+                Width = 100,
+                Height = 100,
+                StrokeThickness = 1,
+                Stroke = blackBrush,
+            };
 
-            DiagramCanvas.Children.Add(rectangle);
+            DiagramGrid.Children.Add(rectangle);
+
+            Canvas.SetTop(rectangle, Height/2);
+            Canvas.SetLeft(rectangle, Width/2);
+
         }
     }
 }
