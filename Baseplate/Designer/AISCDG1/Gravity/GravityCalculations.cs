@@ -9,14 +9,14 @@ namespace Designer.AISCDG1
 {
     public static class GravityCalculations
     {
-        public static double bearingcapacity(ISection isection, Foundation foundation)
+        public static double Bearingcapacity(ISection isection, Foundation foundation)
         {
-
+            return double.NaN;
         }
 
         public static double AnchorCapacity(AnchorRod arod, Foundation foundation)
         {
-
+            return double.NaN;
         }
     }
 }

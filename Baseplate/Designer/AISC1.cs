@@ -12,7 +12,7 @@ namespace Designer
         public static DesignResults DesignGravity(BPDesign bpdesign)
         {
 
-            Column col = bpdesign.column;
+            //Column col = bpdesign._column;
             
 
             DesignResults desresult = new DesignResults();
@@ -25,6 +25,7 @@ namespace Designer
 
         public static DesignResults DesignLateral(BPDesign input)
         {
+            return null;
             //perform shear lug and other stuff here
         }
     }
