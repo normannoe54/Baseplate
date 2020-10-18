@@ -92,6 +92,16 @@
             </Expander>
             <Expander x:Name="FoundationExpander" Header="Foundation" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,0,10,0" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="FdnWidthLabel" Content="Width"/>
+                        <TextBox x:Name="FdnWidthText" TextWrapping="Wrap" Text="{Binding Value, ElementName=FdnWidthSlider}"/>
+                    </StackPanel>
+                    <Slider x:Name="FdnWidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._width}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <Label x:Name="FdnHeightLabel" Content="Width"/>
+                        <TextBox x:Name="FdnHeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=FdnHeightSlider}"/>
+                    </StackPanel>
+                    <Slider x:Name="FdnHeightSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._height}"/>
                 </StackPanel>
             </Expander>
             <Expander x:Name="GussetConnectionExpander" Header="Gusset Connection" Margin="10,10,10,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
