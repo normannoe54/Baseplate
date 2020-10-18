@@ -61,6 +61,5 @@ def main():
                 pm_filter = ScheduleFilter(filter_elem.FieldId, ScheduleFilterType.Equal, "Water Glass")
                 platemation_schedule.Definition.AddFilter(pm_filter)
 
-
 if __name__ == "__main__":
     main()
