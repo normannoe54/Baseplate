@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ObjectModel;
+using DataExtraction;
 
 namespace WPF.Views
 {
@@ -30,7 +31,7 @@ namespace WPF.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //ExportedResults exportedResults = DataExtraction.ExtractSAPInfo.PopulateDesignResults();
+            State.instance.exportedresults = DataExtraction.ExtractSAPInfo.PopulateDesignResults();
             //AMIT WHERE CAN I STORE THE OBJECT ABOVE 
         }
     }

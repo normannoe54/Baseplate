@@ -8,7 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Grid>
-        <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch"/>
+        <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch" Click="Run_Click"/>
         <Canvas x:Name="DiagramCanvas" Width="300" Height="300" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.Left="234" Canvas.Top="90">
             <Rectangle x:Name="FoundationRect" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Black" />
 

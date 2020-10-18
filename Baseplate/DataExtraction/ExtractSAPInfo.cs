@@ -34,7 +34,7 @@ namespace DataExtraction
                 bool notselected = false;
                 mySapModel.FrameObj.GetSelected(names[i], ref notselected);
 
-                if (!notselected)
+                if (notselected)
                 {
                     outputname = names[i];
                     break;
@@ -98,8 +98,10 @@ namespace DataExtraction
             double strainhard = 0;
             double strainmax = 0;
             double strainrupt = 0;
-            mySapModel.PropMaterial.GetOSteel(propname, ref fy, ref fu, ref efy, ref efu, ref sstype, ref sshys, ref strainhard, ref strainmax, ref strainrupt);
-            Steel steel = new Steel(propname, fy);
+            string matprop = "";
+            mySapModel.PropFrame.GetMaterial(propname, ref matprop);
+            mySapModel.PropMaterial.GetOSteel(matprop, ref fy, ref fu, ref efy, ref efu, ref sstype, ref sshys, ref strainhard, ref strainmax, ref strainrupt);
+            Steel steel = new Steel(matprop, fy);
             Column col = new Column(propname, steel);
             ExportedResults expres = new ExportedResults();
             expres._column = col;

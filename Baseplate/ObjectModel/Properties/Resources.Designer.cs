@@ -68,9 +68,9 @@ namespace ObjectModel.Properties {
         ///W44X230,42.9,15.8,1.22,0.71,2.01,67.8,20800,796,971,101,1100,157,17.5,3.43,24.9
         ///W40X655,43.6,16.9,3.54,1. [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string WShape {
+        internal static string ISection {
             get {
-                return ResourceManager.GetString("WShape", resourceCulture);
+                return ResourceManager.GetString("ISection", resourceCulture);
             }
         }
     }

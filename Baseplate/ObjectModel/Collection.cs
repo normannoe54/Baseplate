@@ -24,7 +24,8 @@ namespace ObjectModel
 
         public static List<ISection> CollectISection()
         {
-            string inputdata = Properties.Resources.ResourceManager.GetString("WShape.csv");
+            Type type = typeof(ISection);
+            string inputdata = Properties.Resources.ResourceManager.GetString(type.Name);
             List<ISection> isect = new List<ISection>();
             string[] RowsArray = inputdata.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
             isect.AddRange(RowsArray.Skip(1).Select(v => ObjectfromCSV<ISection>(v)).ToList());

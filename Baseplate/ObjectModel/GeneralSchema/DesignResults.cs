@@ -13,6 +13,9 @@ namespace ObjectModel
     {
         public double YielidngDCR;
         public double AnchorRodTension;
-        public double MaximumBendingCapacity;            
+        public double MaximumBendingCapacity;
+        public double BearingCapacity;
+        public double BearingDCR;
+        public double MinReqdThickness;
     }
 }

@@ -29,6 +29,6 @@ namespace WPF
         public AnchorBolt anchorBolt { get; set; } = new AnchorBolt();
         public Foundation foundation { get; set; } = new Foundation();
 
-        public ExportedResults exportedresults { get; } = new ExportedResults();
+        public ExportedResults exportedresults { get; set; } = new ExportedResults();
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ObjectModel;
 
 namespace WPF.Views
 {
@@ -79,11 +80,11 @@ namespace WPF.Views
             PathGeometry geometry = new PathGeometry();
 
             PathSegmentCollection collection = new PathSegmentCollection();
-            collection.Add(new LineSegment(new Point(Width + proWidth / 2, Height + proHeight / 2), true));
-            collection.Add(new LineSegment(new Point(Width + proWidth / 2, Height - proHeight / 2), true));
-            collection.Add(new LineSegment(new Point(Width - proWidth / 2, Height - proHeight / 2), true));
+            collection.Add(new LineSegment(new System.Windows.Point(Width + proWidth / 2, Height + proHeight / 2), true));
+            collection.Add(new LineSegment(new System.Windows.Point(Width + proWidth / 2, Height - proHeight / 2), true));
+            collection.Add(new LineSegment(new System.Windows.Point(Width - proWidth / 2, Height - proHeight / 2), true));
 
-            PathFigure figure = new PathFigure(new Point(Width - proWidth / 2, Height + proHeight / 2), collection,true);
+            PathFigure figure = new PathFigure(new System.Windows.Point(Width - proWidth / 2, Height + proHeight / 2), collection,true);
 
             geometry.Figures.Add(figure);
 
@@ -92,7 +93,19 @@ namespace WPF.Views
             
             //Canvas.SetTop(myPath, Width / 2);
         }
-        
 
+        private void Run_Click(object sender, RoutedEventArgs e)
+        {
+            //create bpdesign object
+            BPDesign bpdes = new BPDesign();
+            bpdes._bp = State.instance.basePlate;
+            bpdes._exres = State.instance.exportedresults;
+            bpdes._fndn = State.instance.foundation;
+
+            ISection isection = Collection.GetISectionbyName(State.instance.exportedresults._column._section.ToUpper());
+
+            bpdes._column = isection;
+            DesignResults desres = Designer.AISCDG1.DesignGravity(bpdes);
+        }
     }
 }
