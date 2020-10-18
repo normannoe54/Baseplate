@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ObjectModel;
 
 namespace WPF.Views
 {
@@ -23,6 +24,7 @@ namespace WPF.Views
         public ResultsDisplay()
         {
             InitializeComponent();
+            this.DataContext = State.instance;
         }
     }
 }
