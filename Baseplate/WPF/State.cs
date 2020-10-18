@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using ObjectModel;
+
 namespace WPF
 {
     class State
@@ -23,6 +25,10 @@ namespace WPF
                 return _instance;
             }
         }
+
+
+
+        public Baseplate baseplate = new Baseplate();
 
     }
 }

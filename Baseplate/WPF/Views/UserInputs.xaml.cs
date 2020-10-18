@@ -23,12 +23,10 @@ namespace WPF.Views
     public partial class UserInputs : UserControl
     {
 
-        Baseplate bp = new Baseplate();
-
         public UserInputs()
         {
             InitializeComponent();
-            this.DataContext = bp;
+            this.DataContext = State.instance.baseplate;
         }
 
     }
