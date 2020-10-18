@@ -8,20 +8,12 @@ namespace ObjectModel
 {
     public class Foundation
     {
-        public readonly string _name;
+        public string _name;
 
-        public readonly double _width;
+        public double _width;
 
-        public readonly double _height;
+        public double _height;
 
-        public readonly Concrete _concrete;
-
-        public Foundation(string name, double width, double height, Concrete concrete)
-        {
-            _name = name;
-            _width = width;
-            _height = height;
-            _concrete = concrete;
-        }
+        public Concrete _concrete;
     }
 }

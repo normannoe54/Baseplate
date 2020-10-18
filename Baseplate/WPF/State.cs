@@ -28,7 +28,9 @@ namespace WPF
 
 
 
-        public Baseplate baseplate = new Baseplate();
+        public Baseplate basePlate = new Baseplate();
+        public AnchorBolt anchorBolt = new AnchorBolt();
+        public BPTransfer bPTransfer = new BPTransfer();
 
     }
 }

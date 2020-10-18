@@ -26,7 +26,7 @@ namespace WPF.Views
         public UserInputs()
         {
             InitializeComponent();
-            this.DataContext = State.instance.baseplate;
+            this.DataContext = State.instance.basePlate;
         }
     }
 }
