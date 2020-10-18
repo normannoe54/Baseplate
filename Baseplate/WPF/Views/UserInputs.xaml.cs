@@ -28,6 +28,5 @@ namespace WPF.Views
             InitializeComponent();
             this.DataContext = State.instance.baseplate;
         }
-
     }
 }
