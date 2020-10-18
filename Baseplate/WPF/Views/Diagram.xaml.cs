@@ -27,9 +27,17 @@ namespace WPF.Views
         public Diagram()
         {
             InitializeComponent();
+            this.DataContext = State.instance;
 
-            double Width = DiagramCanvas.Width/2;
-            double Height = DiagramCanvas.Height/2;
+            //this.FoundationRect.SetBinding(Rectangle.WidthProperty, new Binding() { Path = new PropertyPath("Width"), Source = State.instance.basePlate, });
+            //this.FoundationRect.SetBinding(Rectangle.HeightProperty, new Binding() { Path = new PropertyPath("Height"), Source = State.instance.basePlate, });
+
+            double Width = DiagramCanvas.Width / 2;
+            double Height = DiagramCanvas.Height / 2;
+
+            //Canvas.SetTop(this.FoundationRect, Height - this.FoundationRect.Height / 2);
+            //Canvas.SetLeft(this.FoundationRect, Width - this.FoundationRect.Width / 2);
+            
 
             SolidColorBrush blackBrush = new SolidColorBrush();
             blackBrush.Color = Colors.Black;
@@ -37,7 +45,7 @@ namespace WPF.Views
             purpleBrush.Color = Color.FromArgb(255,103,58,183);
 
             //FOUNDATION
-            Rectangle foundation = new Rectangle
+            Rectangle foundationRect = new Rectangle
             {
                 Width = 150,
                 Height = 150,
@@ -46,22 +54,22 @@ namespace WPF.Views
                 StrokeDashArray = new DoubleCollection(new double[] { 1.0, 2.0 }),
             };
 
-            DiagramCanvas.Children.Add(foundation);
-            Canvas.SetTop(foundation, Height-foundation.Height/2);
-            Canvas.SetLeft(foundation, Width - foundation.Width / 2);
+            DiagramCanvas.Children.Add(foundationRect);
+            Canvas.SetTop(foundationRect, Height - foundationRect.Height/2);
+            Canvas.SetLeft(foundationRect, Width - foundationRect.Width / 2);
 
             //FOUNDATION
-            Rectangle basePlate = new Rectangle
+            Rectangle basePlateRect = new Rectangle
             {
                 Width = 100,
                 Height = 100,
                 StrokeThickness = 2,
                 Stroke = purpleBrush,
             };
-
-            DiagramCanvas.Children.Add(basePlate);
-            Canvas.SetTop(basePlate, Height - basePlate.Height / 2);
-            Canvas.SetLeft(basePlate, Width - basePlate.Width / 2);
+            
+            DiagramCanvas.Children.Add(basePlateRect);
+            Canvas.SetTop(basePlateRect, Height - basePlateRect.Height / 2);
+            Canvas.SetLeft(basePlateRect, Width - basePlateRect.Width / 2);
 
             //PROFILE
 
