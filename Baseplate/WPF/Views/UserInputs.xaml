@@ -98,7 +98,7 @@
                     </StackPanel>
                     <Slider x:Name="FdnWidthSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._width}"/>
                     <StackPanel Orientation="Horizontal">
-                        <Label x:Name="FdnHeightLabel" Content="Width"/>
+                        <Label x:Name="FdnHeightLabel" Content="Height"/>
                         <TextBox x:Name="FdnHeightText" TextWrapping="Wrap" Text="{Binding Value, ElementName=FdnHeightSlider}"/>
                     </StackPanel>
                     <Slider x:Name="FdnHeightSlider" AutoToolTipPlacement="TopLeft" Minimum="12" Maximum="120" SmallChange="1" TickPlacement="BottomRight" Value="{Binding foundation._height}"/>
