@@ -12,19 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF.Views;
 
-namespace WPF
+namespace WPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Diagram.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Diagram : UserControl
     {
-        public MainWindow()
+        public Diagram()
         {
             InitializeComponent();
-            
+
+            Rectangle rectangle = new Rectangle();
+            rectangle.Width = 100;
+            rectangle.Height = 100;
+            Canvas.SetTop(rectangle, 100);
+            Canvas.SetLeft(rectangle, 100);
+
+            DiagramCanvas.Children.Add(rectangle);
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Designer
+namespace ObjectModel.GeneralSchema
 {
-    public class Class1
+    public class AnchorBolt
     {
     }
 }

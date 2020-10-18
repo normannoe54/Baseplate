@@ -14,8 +14,8 @@ namespace ObjectModel
         public readonly double _Mx;
         public readonly double _My;
         public readonly double _Mz;
-        public readonly string _uid;
-        public ForceObject(double Fx, double Fy, double Fz, double Mx, double My, double Mz, string uid)
+
+        public ForceObject(double Fx, double Fy, double Fz, double Mx, double My, double Mz)
         {
             _Fx = Fx;
             _Fy = Fy;
@@ -23,7 +23,6 @@ namespace ObjectModel
             _Mx = Mx;
             _My = My;
             _Mz = Mz;
-            _uid = uid;
         }
     }
 }
