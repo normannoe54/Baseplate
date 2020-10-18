@@ -12,16 +12,21 @@ namespace ObjectModel
         /// <summary>
         /// name
         /// </summary>
-        public readonly string _name;
+        public readonly string _name = "A992";
 
         /// <summary>
         /// yield stress
         /// </summary>
-        public readonly double _Fy;
+        public readonly double _Fy = 50.0;
 
         #endregion
 
         #region constructor
+
+        public Steel()
+        {
+        }
+
         /// <summary>
         /// base class constructor
         /// </summary>

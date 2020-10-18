@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPF.Views;
 
+using ObjectModel;
+
 namespace WPF
 {
     /// <summary>
@@ -21,9 +23,12 @@ namespace WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        Baseplate baseplate = new Baseplate();
+
         public MainWindow()
         {
             InitializeComponent();
+            
         }
     }
 }

@@ -28,10 +28,5 @@ namespace WPF.Views
             InitializeComponent();
             this.DataContext = State.instance;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Debug.Print(State.instance.ToString());
-        }
     }
 }

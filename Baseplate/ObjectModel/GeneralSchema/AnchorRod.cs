@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ObjectModel
 {
-    public class AnchorBolt
+    public class AnchorRod
     {
-        public AnchorBolt() { }
+        public AnchorRod() { }
     }
 }
