@@ -11,9 +11,9 @@ namespace ObjectModel
     /// </summary>
     public class BPDesign
     {
-        public readonly ISection _column;
-        public readonly Baseplate _bp;
-        public readonly Foundation _fndn;
-        public readonly ExportedResults _exres;
+        public ISection _column { get; set; }
+        public Baseplate _bp { get; set; }
+        public Foundation _fndn { get; set; }
+        public ExportedResults _exres { get; set; }
     }
 }
