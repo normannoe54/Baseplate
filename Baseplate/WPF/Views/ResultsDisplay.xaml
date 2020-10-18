@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <Label Content= "RESULTS" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+        <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch" Click="Run_Click"/>
         <Grid Height="437">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
@@ -16,7 +17,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-            <Button x:Name="Run" Content="Run" VerticalAlignment="Top" Canvas.Left="10" Canvas.Top="4" HorizontalAlignment="Stretch" Click="Run_Click"/>
             <StackPanel Margin="10">
                 <Label x:Name="YieldingLabel" Content="Yielding :" HorizontalAlignment="Right" FontSize="12"/>
             <Label x:Name="AnchorBltTenLabel" Content="Anchor Bolt Tension :" HorizontalAlignment="Right" FontSize="12"/>
@@ -26,11 +26,11 @@
                 <Label x:Name="MinReqThickLabel" Content="Min Req. Thickness :" HorizontalAlignment="Right" FontSize="12"/>
         </StackPanel>
             <StackPanel Grid.Column="1" Margin="10">
-                <Label x:Name="YieldingResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.YielidngDCR}" />
-                <Label x:Name="AnchorBltTenResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.AnchorRodTension}" />
-                <Label x:Name="MaxBendCapResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.MaximumBendingCapacity}" />
-                <Label x:Name="BearingCapResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingCapacity}" />
-                <Label x:Name="BearingDCRResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingDCR}" />
+                <Label x:Name="YieldingResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.YielidngDCR, Mode=TwoWay}" />
+                <Label x:Name="AnchorBltTenResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.AnchorRodTension, Mode=TwoWay}" />
+                <Label x:Name="MaxBendCapResult" HorizontalAlignment="Left" FontSize="12" Content="{Binding designResults.MaximumBendingCapacity, Mode=TwoWay}" />
+                <Label x:Name="BearingCapResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingCapacity, Mode=TwoWay}" />
+                <Label x:Name="BearingDCRResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.BearingDCR, Mode=TwoWay}" />
                 <Label x:Name="MinReqThickResult" HorizontalAlignment="Left" FontSize="12"  Content="{Binding designResults.MinReqdThickness}" />
             </StackPanel>
 

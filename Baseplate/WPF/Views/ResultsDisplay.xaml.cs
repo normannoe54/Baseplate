@@ -39,9 +39,11 @@ namespace WPF.Views
 
             bpdes._column = isection;
             DesignResults desres = Designer.AISCDG1.DesignGravity(bpdes);
-            State.instance.designResults = desres;
-            //State.instance.designResults.AnchorRodTension = desres.AnchorRodTension;
-            //State.instance.designResults.BearingCapacity = desres.BearingCapacity;
+            //State.instance.designResults = desres;         
+            BearingCapResult.Content = desres.BearingCapacity;
+            BearingDCRResult.Content = desres.BearingDCR;
+            MinReqThickResult.Content = desres.MinReqdThickness;
+            
         }
     }
 }
